@@ -9,3 +9,4 @@ Record My Flutter Study Journey!
 - ListView：几种实现方式
 - html：html渲染
 - dio：A powerful Http client for Dart, which supports Interceptors, FormData, Request Cancellation, File Downloading, Timeout etc.
+- flutter_inappbrowser : A Flutter plugin that allows you to add an inline webview or open an in-app browser window.
