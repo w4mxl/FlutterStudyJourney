@@ -22,7 +22,6 @@ dependencies:
   flutter_html: ^0.8.2
   dio: ^1.0.13 # https://pub.dartlang.org/packages/dio
   xpath: ^0.1.0 # https://pub.flutter-io.cn/packages/xpath
-  flutter_inappbrowser: ^0.5.51 #https://pub.dartlang.org/packages/flutter_inappbrowser
 
 dev_dependencies:
   flutter_test:
