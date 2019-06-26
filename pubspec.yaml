@@ -1,12 +1,6 @@
 name: flutter_wml_demos
 description: Flutter study demos
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# Read more about versioning at semver.org.
 version: 1.0.0+1
 
 environment:
@@ -16,8 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   flutter_html: ^0.8.2
   dio: ^1.0.13 # https://pub.dartlang.org/packages/dio
@@ -34,15 +26,8 @@ flutter_icons:
   android: true # can specify file name here e.g. "ic_launcher"
   ios: true # can specify file name here e.g. "My-Launcher-Icon"
 
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
 
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
   fonts:
@@ -51,6 +36,17 @@ flutter:
         - asset: assets/fonts/Whitney-Book.ttf
         - asset: assets/fonts/Whitney-BookItalic.ttf
           style: italic
+
+    - family: Pacifico
+      fonts:
+        - asset: assets/fonts/Pacifico-Regular.ttf
+
+    - family: SourceCodePro
+      fonts:
+        - asset: assets/fonts/SourceCodePro-Regular.ttf
+
+  assets:
+    - assets/images/icon/ios.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

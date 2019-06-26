@@ -6,6 +6,7 @@ import 'package:flutter_wml_demos/demos/dio/flutter_dio.dart';
 import 'package:flutter_wml_demos/demos/html/flutter_html.dart';
 
 import 'demos/ui/ui01.dart';
+import 'demos/ui/ui02.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.teal, fontFamily: 'Whitney'),
       routes: <String, WidgetBuilder>{
         '/UI01': (BuildContext context) => Ui01(),
+        '/UI02': (BuildContext context) => Ui02(),
         '/ListViewPage': (BuildContext context) => new ListViewPage(),
         '/SliverAppBarPage': (BuildContext context) => new SliverAppBarPage(),
         '/FlutterHtmlPage': (BuildContext context) => new FlutterHtmlPage(
@@ -60,6 +62,13 @@ class HomePage extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/UI01');
+                  },
+                ),
+                ListTile(
+                  title: Text('ui-02'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).pushNamed('/UI02');
                   },
                 ),
                 new ListTile(
