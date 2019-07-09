@@ -15,6 +15,9 @@ dependencies:
   dio: ^1.0.13 # https://pub.dartlang.org/packages/dio
   xpath: ^0.1.0 # https://pub.flutter-io.cn/packages/xpath
 
+  provider: ^2.0.1
+  audioplayers: ^0.13.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -46,7 +49,7 @@ flutter:
         - asset: assets/fonts/SourceCodePro-Regular.ttf
 
   assets:
-    - assets/images/icon/ios.png
+    - assets/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -5,6 +5,7 @@ import 'package:flutter_wml_demos/demos/SliverAppBar/Widget_SliverAppBar.dart';
 import 'package:flutter_wml_demos/demos/dio/flutter_dio.dart';
 import 'package:flutter_wml_demos/demos/html/flutter_html.dart';
 
+import 'demos/audio/audioplayers.dart';
 import 'demos/ui/ui01.dart';
 import 'demos/ui/ui02.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
               title: 'flutter_html',
             ),
         '/DioExercise': (BuildContext context) => new DioExercise(),
+        '/AudioPlayer': (BuildContext context) => new AudioPlayerDemo(),
       },
     );
   }
@@ -57,7 +59,7 @@ class HomePage extends StatelessWidget {
                     backgroundImage: NetworkImage("https://avatars2.githubusercontent.com/u/3645496?s=460&v=4"),
                   ),
                 ),
-                new ListTile(
+                ListTile(
                   title: Text('ui-01'),
                   onTap: () {
                     Navigator.of(context).pop();
@@ -69,6 +71,13 @@ class HomePage extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.of(context).pushNamed('/UI02');
+                  },
+                ),
+                ListTile(
+                  title: Text('audio player'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).pushNamed('/AudioPlayer');
                   },
                 ),
                 new ListTile(
