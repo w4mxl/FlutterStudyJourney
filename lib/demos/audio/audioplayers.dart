@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 
 class AudioPlayerDemo extends StatelessWidget {
-  final player = AudioCache();
+  final player = AudioCache(prefix: 'audio/');
 
   @override
   Widget build(BuildContext context) {
