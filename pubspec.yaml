@@ -49,7 +49,13 @@ flutter:
         - asset: assets/fonts/SourceCodePro-Regular.ttf
 
   assets:
-    - assets/
+    - assets/audio/note1.wav
+    - assets/audio/note2.wav
+    - assets/audio/note3.wav
+    - assets/audio/note4.wav
+    - assets/audio/note5.wav
+    - assets/audio/note6.wav
+    - assets/audio/note7.wav
 
   # To add assets to your application, add an assets section, like this:
   # assets:

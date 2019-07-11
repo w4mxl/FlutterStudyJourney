@@ -12,61 +12,32 @@ class AudioPlayerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('audioplayers'),
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch, // 水平方向撑满
+          children: <Widget>[
+            buildExpanded(color: Colors.red, audioNumber: 1),
+            buildExpanded(color: Colors.orange, audioNumber: 1),
+            buildExpanded(color: Colors.yellow, audioNumber: 1),
+            buildExpanded(color: Colors.green, audioNumber: 1),
+            buildExpanded(color: Colors.blue, audioNumber: 1),
+            buildExpanded(color: Colors.teal, audioNumber: 1),
+            buildExpanded(color: Colors.purple, audioNumber: 1),
+          ],
+        ),
       ),
-      body: Column(
-        children: <Widget>[
-          FlatButton(
-            color: Colors.red,
-            onPressed: () {
-              player.play('note1.wav');
-            },
-            child: Text(''),
-          ),
-          FlatButton(
-            color: Colors.orange,
-            onPressed: () {
-              player.play('note2.wav');
-            },
-            child: Text(''),
-          ),
-          FlatButton(
-            color: Colors.yellow,
-            onPressed: () {
-              player.play('note3.wav');
-            },
-            child: Text(''),
-          ),
-          FlatButton(
-            color: Colors.green,
-            onPressed: () {
-              player.play('note4.wav');
-            },
-            child: Text(''),
-          ),
-          FlatButton(
-            color: Colors.blue,
-            onPressed: () {
-              player.play('note5.wav');
-            },
-            child: Text(''),
-          ),
-          FlatButton(
-            color: Colors.teal,
-            onPressed: () {
-              player.play('note6.wav');
-            },
-            child: Text(''),
-          ),
-          FlatButton(
-            color: Colors.purple,
-            onPressed: () {
-              player.play('note7.wav');
-            },
-            child: Text(''),
-          ),
-        ],
+    );
+  }
+
+  Expanded buildExpanded({Color color, int audioNumber}) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: () {
+          player.play('note$audioNumber.wav');
+        },
+        child: null,
       ),
     );
   }
