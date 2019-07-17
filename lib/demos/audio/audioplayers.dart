@@ -24,6 +24,7 @@ class AudioPlayerDemo extends StatelessWidget {
             buildExpanded(color: Colors.blue, audioNumber: 1),
             buildExpanded(color: Colors.teal, audioNumber: 1),
             buildExpanded(color: Colors.purple, audioNumber: 1),
+            buildExpanded(color: Colors.black, audioNumber: 1),
           ],
         ),
       ),
