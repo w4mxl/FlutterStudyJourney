@@ -5,6 +5,7 @@ import 'package:flutter_wml_demos/demos/SliverAppBar/Widget_SliverAppBar.dart';
 import 'package:flutter_wml_demos/demos/dio/flutter_dio.dart';
 import 'package:flutter_wml_demos/demos/html/flutter_html.dart';
 
+import 'demos/BottomBar/bottom_bar_index.dart';
 import 'demos/audio/audioplayers.dart';
 import 'demos/ui/ui01.dart';
 import 'demos/ui/ui02.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
             ),
         '/DioExercise': (BuildContext context) => new DioExercise(),
         '/AudioPlayer': (BuildContext context) => new AudioPlayerDemo(),
+        '/BottomNavigationBar': (BuildContext context) => new BottomBarIndex(),
       },
     );
   }
@@ -58,6 +60,13 @@ class HomePage extends StatelessWidget {
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: NetworkImage("https://avatars2.githubusercontent.com/u/3645496?s=460&v=4"),
                   ),
+                ),
+                ListTile(
+                  title: Text('BottomNavigationBar'),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed('/BottomNavigationBar');
+                  },
                 ),
                 ListTile(
                   title: Text('ui-01'),
