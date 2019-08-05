@@ -28,7 +28,7 @@ class BottomBarIndex extends StatelessWidget {
           ),
           ListTile(
             title: Text('CupertinoTabBar Sample'),
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CupertinoTabBar())),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CupertinoTabBarDemo())),
           ),
         ],
       ),
