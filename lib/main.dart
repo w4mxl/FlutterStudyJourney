@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_wml_demos/demos/ListView/Widget_ListView.dart';
-import 'package:flutter_wml_demos/demos/SliverAppBar/Widget_SliverAppBar.dart';
 import 'package:flutter_wml_demos/demos/dio/flutter_dio.dart';
 import 'package:flutter_wml_demos/demos/html/flutter_html.dart';
 
-import 'demos/BottomBar/bottom_bar_index.dart';
 import 'demos/audio/audioplayers.dart';
+import 'demos/bottom_bar/bottom_bar_index.dart';
+import 'demos/sliver_appbar/Widget_SliverAppBar.dart';
 import 'demos/ui/ui01.dart';
 import 'demos/ui/ui02.dart';
 
@@ -19,20 +19,37 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       theme: ThemeData(primarySwatch: Colors.teal, fontFamily: 'Whitney'),
       routes: <String, WidgetBuilder>{
-        '/UI01': (BuildContext context) => Ui01(),
-        '/UI02': (BuildContext context) => Ui02(),
-        '/ListViewPage': (BuildContext context) => new ListViewPage(),
-        '/SliverAppBarPage': (BuildContext context) => new SliverAppBarPage(),
-        '/FlutterHtmlPage': (BuildContext context) => new FlutterHtmlPage(
-              title: 'flutter_html',
-            ),
-        '/DioExercise': (BuildContext context) => new DioExercise(),
-        '/AudioPlayer': (BuildContext context) => new AudioPlayerDemo(),
-        '/BottomNavigationBar': (BuildContext context) => new BottomBarIndex(),
+        'ui_row_column': (BuildContext context) => Ui01(),
+        'ui_person_info': (BuildContext context) => Ui02(),
+        'listview': (BuildContext context) => new ListViewPage(),
+        'sliver_appbar': (BuildContext context) => new SliverAppBarPage(),
+        'flutter_html': (BuildContext context) => new FlutterHtmlPage(title: 'flutter_html'),
+        'dio': (BuildContext context) => new DioExercise(),
+        'audio_player': (BuildContext context) => new AudioPlayerDemo(),
+        'bottom_navigation_bar': (BuildContext context) => new BottomBarIndex(),
       },
     );
   }
 }
+
+class Demo {
+  final String title;
+  final String subtitle;
+  final String routeName;
+
+  const Demo({this.title, this.subtitle, this.routeName});
+}
+
+const Demos = [
+  Demo(title: 'BottomNavigationBar', subtitle: '展示底部导航栏的三种实现方式', routeName: 'bottom_navigation_bar'),
+  Demo(title: 'Row & Column', subtitle: 'Row & Column widget 练习', routeName: 'ui_row_column'),
+  Demo(title: '个人信息页面', subtitle: 'Card & 自定义字体 练习', routeName: 'ui_person_info'),
+  Demo(title: 'Audio Player', subtitle: '播放本地音频文件', routeName: 'audio_player'),
+  Demo(title: 'ListView', subtitle: 'listview 多种实现方式', routeName: 'listview'),
+  Demo(title: 'SliverAppBar', subtitle: 'SliverAppBar 练习', routeName: 'sliver_appbar'),
+  Demo(title: 'Flutter Html', subtitle: 'Html 渲染 练习', routeName: 'flutter_html'),
+  Demo(title: 'Dio', subtitle: 'Dio 网络库 练习', routeName: 'dio'),
+];
 
 class HomePage extends StatelessWidget {
   @override
@@ -40,14 +57,22 @@ class HomePage extends StatelessWidget {
     return new Scaffold(
       appBar: AppBar(
         elevation: defaultTargetPlatform == TargetPlatform.android ? 5.0 : 0.0,
+        title: Text('学习 Flutter 时的一些 Demo'),
       ),
-      body: Center(
-        child: Text(
-          '这里是记录我学习Flutter的一些demo',
-          textDirection: TextDirection.ltr,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-        ),
-      ),
+      body: ListView.separated(
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(Demos[index].title),
+              subtitle: Text(Demos[index].subtitle),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 16,
+              ),
+              onTap: () => Navigator.pushNamed(context, Demos[index].routeName),
+            );
+          },
+          separatorBuilder: (context, index) => Divider(),
+          itemCount: Demos.length),
       drawer: SizedBox(
         width: 200.0,
         child: Drawer(
@@ -61,62 +86,6 @@ class HomePage extends StatelessWidget {
                     backgroundImage: NetworkImage("https://avatars2.githubusercontent.com/u/3645496?s=460&v=4"),
                   ),
                 ),
-                ListTile(
-                  title: Text('BottomNavigationBar'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/BottomNavigationBar');
-                  },
-                ),
-                ListTile(
-                  title: Text('ui-01'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/UI01');
-                  },
-                ),
-                ListTile(
-                  title: Text('ui-02'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.of(context).pushNamed('/UI02');
-                  },
-                ),
-                ListTile(
-                  title: Text('audio player'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.of(context).pushNamed('/AudioPlayer');
-                  },
-                ),
-                new ListTile(
-                  title: Text('ListView'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/ListViewPage');
-                  },
-                ),
-                new ListTile(
-                  title: Text('SliverAppBar'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/SliverAppBarPage');
-                  },
-                ),
-                new ListTile(
-                  title: Text('FlutterHtml'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/FlutterHtmlPage');
-                  },
-                ),
-                new ListTile(
-                  title: Text('dio'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/DioExercise');
-                  },
-                )
               ],
             ),
           ),
