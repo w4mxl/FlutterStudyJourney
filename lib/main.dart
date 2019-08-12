@@ -18,9 +18,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      // home: HomePage(),
+      // initialRoute: 'home',
       theme: ThemeData(primarySwatch: Colors.teal, fontFamily: 'Whitney'),
       routes: <String, WidgetBuilder>{
+        '/': (BuildContext context) => HomePage(),
         'ui_row_column': (BuildContext context) => Ui01(),
         'ui_person_info': (BuildContext context) => Ui02(),
         'listview': (BuildContext context) => ListViewPage(),
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
         'audio_player': (BuildContext context) => AudioPlayerDemo(),
         'bottom_navigation_bar': (BuildContext context) => BottomBarIndex(),
         'route_manager': (BuildContext context) => PageFirst(),
+        // 把 PageTwo2()  路由页面注册到路由表中，名字设为 'page_two_2'
         'page_two_2': (BuildContext context) => PageTwo2(),
       },
     );

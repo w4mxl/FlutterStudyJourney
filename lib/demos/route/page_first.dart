@@ -19,7 +19,7 @@ class PageFirst extends StatelessWidget {
           children: <Widget>[
             RaisedButton(
               onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PageTwo())),
-              child: Text('下一页'),
+              child: Text('下一页：构建式路由'),
             ),
             RaisedButton(
               onPressed: () async {
@@ -35,8 +35,9 @@ class PageFirst extends StatelessWidget {
                 // 输出 page two 返回来的结果
                 print(result);
               },
-              child: Text('下一页：传参数'),
+              child: Text('下一页：构建式路由 & 传参'),
             ),
+            Divider(),
             RaisedButton(
               onPressed: () {
                 Navigator.pushNamed(context, 'page_two_2');
